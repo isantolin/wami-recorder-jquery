@@ -8,4 +8,3 @@ $content = file_get_contents('php://input');
 $fh = fopen($file, 'w') || die("can't open file");
 fwrite($fh, $content);
 fclose($fh);
-?>
