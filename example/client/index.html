@@ -8,7 +8,7 @@
 
         <script type="text/javascript">
 
-            $(document).ready(function() {// your code here..
+            $(document).ready(function () {// your code here..
                 Wami.setup({
                     id: 'flash' // where to put the flash object
                 });
@@ -36,7 +36,7 @@
                 record
                         .html('Stop')
                         .unbind()
-                        .click(function() {
+                        .click(function () {
                             stopRecording();
                         });
             }
@@ -49,7 +49,7 @@
                 record
                         .html('Record')
                         .unbind()
-                        .click(function() {
+                        .click(function () {
                             startRecording();
                         });
             }
@@ -60,7 +60,7 @@
                 play
                         .html('Stop')
                         .unbind()
-                        .click(function() {
+                        .click(function () {
                             stopPlaying();
                         });
             }
@@ -71,17 +71,17 @@
                 play
                         .html('Play')
                         .unbind()
-                        .click(function() {
+                        .click(function () {
                             startPlaying();
                         });
             }
 
             // add initial click functions
-            record.click(function() {
+            record.click(function () {
                 startRecording();
             });
 
-            play.click(function() {
+            play.click(function () {
                 startPlaying();
             });
         </script>

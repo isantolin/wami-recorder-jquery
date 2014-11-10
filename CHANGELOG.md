@@ -1,3 +1,10 @@
+## 1.1.2 (2014-11-09)
+
+Bugfixes:
+
+  - Corrected || operator
+  - Removed newline Character warning
+
 ## 1.1.1 (2014-07-02)
 
 Features:
