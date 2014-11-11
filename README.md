@@ -14,7 +14,7 @@ The Problem
 -----------
 As of this writing, most browsers still do not support WebRTC's getUserMedia()
 
-http://caniuse.com/stream
+http://caniuse.com/#search=stream
 
 which promises to give web developers microphone access via Javascript. This project achieves the next best thing for browsers that support Flash. Using the WAMI recorder, you can collect audio on your server without installing any proprietary media server software.
 
