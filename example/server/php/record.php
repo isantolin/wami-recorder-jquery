@@ -5,6 +5,6 @@ parse_str($_SERVER['QUERY_STRING'], $params);
 $file = isset($params['filename']) ? $params['filename'] : 'temp.wav';
 // save the recorded audio to that file
 $content = file_get_contents('php://input');
-$fh = fopen($file, 'w') || die("can't open file");
+$fh = fopen($file, 'w') || echo("can't open file");
 fwrite($fh, $content);
 fclose($fh);

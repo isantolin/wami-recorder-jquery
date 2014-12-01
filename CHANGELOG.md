@@ -1,3 +1,9 @@
+## 1.1.3 (2014-12-01)
+
+Bugfixes:
+
+  - replaced die()
+
 ## 1.1.2 (2014-11-09)
 
 Bugfixes:
