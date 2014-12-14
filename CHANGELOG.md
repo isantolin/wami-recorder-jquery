@@ -1,3 +1,9 @@
+## 2.0.0 (2014-12-14)
+
+New Features:
+
+  - ogg/mp3 conversion
+
 ## 1.1.3 (2014-12-01)
 
 Bugfixes:

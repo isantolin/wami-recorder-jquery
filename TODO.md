@@ -1,7 +1,7 @@
 THIS is a pending Tasklist for wami-recorder-jquery
 
 SERVER FILES:
-- [ ] ogg/mp3 conversion
+- [X] ogg/mp3 conversion
 
 CLIENT FILES:
 - [ ] index.html variable cleanup
