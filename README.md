@@ -9,6 +9,12 @@ About The Authors
 	- Mail: ignacio.santolin[at]gmail.com
 	- Github: https://github.com/isantolin
 
+Requirements (Tested on)
+-----------------
+- PHP: 7.0
+- JQuery: 2.2.4
+- SWFObject: 2.2
+- Adobe Flex: 4.6
 
 The Problem
 -----------
@@ -21,7 +27,6 @@ which promises to give web developers microphone access via Javascript. This pro
 The Solution
 ------------
 The WAMI recorder uses a light-weight Flash app to ship audio from client to server via a standard HTTP POST. Apart from the security settings to allow microphone access, the entire interface can be constructed in HTML and JQuery.
-
 
 The Client
 ----------
@@ -44,31 +49,7 @@ The Server
 ----------
 If you want to collect audio from the browser, there is no getting around the need to host your own server. However, a key feature of this project is that there is no need to configure an entire Flash Media Server just to collect audio from the web. You can choose whatever server-side technology you prefer. You could, for instance, host this simple PHP script on Apache2:
 
-```
-<?php
-
-// get the filename
-parse_str($_SERVER['QUERY_STRING'], $params);
-$file = isset($params['filename']) ? $params['filename'] : 'temp.wav';
-// save the recorded audio to that file
-$content = file_get_contents('php://input');
-$fh = fopen($file, 'w');
-$filename = pathinfo($file);
-
-if ($fh != FALSE) {
-    fwrite($fh, $content);
-    fclose($fh);
-
-    $commandOutput = shell_exec('ffmpeg -i ' . $file . ' -acodec libmp3lame ' . $filename['filename'] . '.mp3');
-    $commandOutput .= shell_exec('ffmpeg -i ' . $file . '  -acodec libvorbis ' . $filename['filename'] . '.ogg');
-
-    file_put_contents('log.txt', $commandOutput);
-} else {
-    echo "can't open file";
-}
-
-?>
-```
+[wami-recorder-jquery/example/server/php/writeAudio.php](wami-recorder-jquery/example/server/php/writeAudio.php)
 
 Notice that this code optionally takes a URL query parameter to specify a file name. With the appropriate permissions, the PHP code will write a file with this nam to disk. You can pass a different file name every time you record to distinguish between individual users, sessions, and utterances. You might wish to use random numbers generated in Javascript and cookies stored in the browser to track users across browser reloads and to name their corresponding files. It should be noted that the example above suffers from security issues, and should probably be modified for actual deployment.
 
