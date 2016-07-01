@@ -49,7 +49,7 @@ The Server
 ----------
 If you want to collect audio from the browser, there is no getting around the need to host your own server. However, a key feature of this project is that there is no need to configure an entire Flash Media Server just to collect audio from the web. You can choose whatever server-side technology you prefer. You could, for instance, host this simple PHP script on Apache2:
 
-[wami-recorder-jquery/example/server/php/writeAudio.php](wami-recorder-jquery/example/server/php/writeAudio.php)
+[example/server/php/writeAudio.php](example/server/php/writeAudio.php)
 
 Notice that this code optionally takes a URL query parameter to specify a file name. With the appropriate permissions, the PHP code will write a file with this nam to disk. You can pass a different file name every time you record to distinguish between individual users, sessions, and utterances. You might wish to use random numbers generated in Javascript and cookies stored in the browser to track users across browser reloads and to name their corresponding files. It should be noted that the example above suffers from security issues, and should probably be modified for actual deployment.
 
