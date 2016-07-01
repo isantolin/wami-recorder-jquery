@@ -1,4 +1,4 @@
-Wami Recorder for Jquery 1.1.3 by Ignacio Santolin
+Wami Recorder for Jquery 3.0.0 by Ignacio Santolin
 ================================================
 
 About The Authors
