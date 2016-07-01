@@ -1,101 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Teste</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
         <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-        <script src="js/recorder.js" type="text/javascript"></script>
-        <title>wami-record for JQuery test</title>
+	<script type="text/javascript" src="js/AudioRecorder.js"></script>
+</head>
+<body>
+	<button id="start">Start Capture</button>
+	<button id="play">Preview</button>
+	<button id="save">Save to MP3</button>
+	<div id="flash"></div>
 
-        <script type="text/javascript">
+	<script type="text/javascript">
+	   var base_url = window.location.toString().replace(/example\.html.*/, '');
+		var rec = new AudioRecorder(base_url + '../client/js', base_url + '../server/php/writeAudio.php', $('body')[0], '../server/php/writeAudio.php?save=1');
 
-            $(document).ready(function () {// your code here..
-                Wami.setup({
-                    id: 'flash' // where to put the flash object
-                });
+		$('#start').click(function startClick() {
+			rec.start();
+			$(this).unbind().click(function() {
+				rec.stop();
+				$(this).unbind().click(startClick);
+			});
+		});
+		$('#play').click(function() {
+			rec.play();
+		});
 
-            });
-
-            // initialize Wami
-
-
-            // initialize some global vars
-            var recording = '';
-            var recordingUrl = '';
-            var playBackUrl = '';
-
-            // get button elements
-            var record = $('#record');
-            var play = $('#play');
-
-            // define functions
-            function startRecording() {
-                recording = 'temp.wav';
-                recordingUrl = 'http://localhost/temp/wami/test/record.php?filename=' + recording;
-                Wami.startRecording(recordingUrl);
-                // update button attributes
-                record
-                        .html('Stop')
-                        .unbind()
-                        .click(function () {
-                            stopRecording();
-                        });
-            }
-
-            function stopRecording() {
-                Wami.stopRecording();
-                // get the recording for playback
-                playBackUrl = 'http://localhost/temp/wami/test/' + recording;
-                // update button attributes
-                record
-                        .html('Record')
-                        .unbind()
-                        .click(function () {
-                            startRecording();
-                        });
-            }
-
-            function startPlaying() {
-                Wami.startPlaying(playBackUrl);
-                // update button attributes
-                play
-                        .html('Stop')
-                        .unbind()
-                        .click(function () {
-                            stopPlaying();
-                        });
-            }
-
-            function stopPlaying() {
-                Wami.stopPlaying();
-                // update button attributes
-                play
-                        .html('Play')
-                        .unbind()
-                        .click(function () {
-                            startPlaying();
-                        });
-            }
-
-            // add initial click functions
-            record.click(function () {
-                startRecording();
-            });
-
-            play.click(function () {
-                startPlaying();
-            });
-        </script>
-
-    </head>
-
-    <body>
-        <div id="recorder">
-            <button id="record">Record</button>
-            <button id="play">Play</button>
-        </div>
-        <div id="flash"></div>
-    </body>
-
-
-
+		$('#save').click(function() {
+			rec.save();
+		});
+	</script>
+</body>
 </html>
