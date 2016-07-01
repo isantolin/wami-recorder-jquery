@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Teste</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Teste</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
         <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-	<script type="text/javascript" src="js/AudioRecorder.js"></script>
-</head>
-<body>
-	<button id="start">Start Capture</button>
-	<button id="play">Preview</button>
-	<button id="save">Save to MP3</button>
-	<div id="flash"></div>
+        <script type="text/javascript" src="js/AudioRecorder.js"></script>
+    </head>
+    <body>
+        <button id="start">Start Capture</button>
+        <button id="stop">Stop Capture</button>
+        <button id="play">Preview</button>
+        <button id="save">Save to MP3</button>
+        <div id="flash"></div>
 
-	<script type="text/javascript">
-	   var base_url = window.location.toString().replace(/example\.html.*/, '');
-		var rec = new AudioRecorder(base_url + '../client/js', base_url + '../server/php/writeAudio.php', $('body')[0], '../server/php/writeAudio.php?save=1');
+        <script type="text/javascript">
+            var base_url = window.location.toString().replace(/example\.html.*/, '');
+            var rec = new AudioRecorder(base_url + '../client/js', base_url + '../server/php/writeAudio.php', $('body')[0], '../server/php/writeAudio.php?save=1');
 
-		$('#start').click(function startClick() {
-			rec.start();
-			$(this).unbind().click(function() {
-				rec.stop();
-				$(this).unbind().click(startClick);
-			});
-		});
-		$('#play').click(function() {
-			rec.play();
-		});
+            $('#start').click(function startClick() {
+                rec.start();
+                $(this).unbind().click(function () {
+                    rec.stop();
+                    $(this).unbind().click(startClick);
+                });
+            });
+            $('#play').click(function () {
+                rec.play();
+            });
 
-		$('#save').click(function() {
-			rec.save();
-		});
-	</script>
-</body>
+            $('#save').click(function () {
+                rec.save();
+            });
+
+            $('#stop').click(function () {
+                rec.stop();
+            });
+        </script>
+    </body>
 </html>
