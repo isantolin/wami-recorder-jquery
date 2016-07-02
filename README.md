@@ -12,7 +12,7 @@ About The Authors
 Requirements (Tested on)
 -----------------
 - PHP: 7.0
-- JQuery: 2.2.4
+- JQuery: 3.0.0
 - SWFObject: 2.2
 - Adobe Flex: 4.6
 
