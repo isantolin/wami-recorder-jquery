@@ -15,6 +15,7 @@ Requirements (Tested on)
 - JQuery: 3.0.0
 - SWFObject: 2.2
 - Adobe Flex: 4.6
+- FFmpeg: 2.8.6 w/ libmp3lame, libvorbis support
 
 The Problem
 -----------
