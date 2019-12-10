@@ -14,7 +14,7 @@ Requirements (Tested on)
 - PHP: 7.4.0
 - JQuery: 3.4.1
 - SWFObject: 2.2
-- Adobe Flex: 4.6 / Apache Flex 4.15.0
+- Adobe Flex: 4.6 / Apache Flex 4.16.1
 - FFmpeg: 4.2.1 w/ libmp3lame, libvorbis support
 
 The Problem
