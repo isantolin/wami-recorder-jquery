@@ -1,4 +1,4 @@
-Wami Recorder for Jquery 3.2.0 by Ignacio Santolin
+Wami Recorder for Jquery 3.2.1 by Ignacio Santolin
 ================================================
 
 About The Authors
@@ -11,11 +11,11 @@ About The Authors
 
 Requirements (Tested on)
 -----------------
-- PHP: 7.0
-- JQuery: 3.1.1
+- PHP: 7.4.0
+- JQuery: 3.4.1
 - SWFObject: 2.2
 - Adobe Flex: 4.6 / Apache Flex 4.15.0
-- FFmpeg: 3.0.2 w/ libmp3lame, libvorbis support
+- FFmpeg: 4.2.1 w/ libmp3lame, libvorbis support
 
 The Problem
 -----------
