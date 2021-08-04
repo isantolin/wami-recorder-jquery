@@ -9,7 +9,8 @@
 # on the incoming data.
 
 import cgi
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
 
 class WamiHandler(BaseHTTPRequestHandler):
     dirname = "/tmp/"
@@ -17,7 +18,7 @@ class WamiHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         f = open(self.get_name())
         self.send_response(200)
-        self.send_header('content-type','audio/x-wav')
+        self.send_header('content-type', 'audio/x-wav')
         self.end_headers()
         self.wfile.write(f.read())
         f.close()
@@ -27,27 +28,29 @@ class WamiHandler(BaseHTTPRequestHandler):
         # Note that python's HTTPServer doesn't support chunked transfer.
         # Thus, it requires a content-length.
         length = int(self.headers.getheader('content-length'))
-        print "POST of length " + str(length)
+        print("POST of length " + str(length))
         f.write(self.rfile.read(length))
-        f.close();
+        f.close()
 
     def get_name(self):
-        filename = 'output.wav';
-        qs = self.path.split('?',1);
+        filename = 'output.wav'
+        qs = self.path.split('?', 1)
         if len(qs) == 2:
             params = cgi.parse_qs(qs[1])
             if params['name']:
-                filename = params['name'][0];
+                filename = params['name'][0]
         return WamiHandler.dirname + filename
+
 
 def main():
     try:
         server = HTTPServer(('', 9000), WamiHandler)
-        print 'Started server...'
+        print('Started server...')
         server.serve_forever()
     except KeyboardInterrupt:
-        print 'Stopping server'
+        print('Stopping server')
         server.socket.close()
+
 
 if __name__ == '__main__':
     main()

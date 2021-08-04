@@ -12,10 +12,11 @@ About The Authors
 Requirements (Tested on)
 -----------------
 - PHP: 7.4.0
-- JQuery: 3.4.1
+- JQuery: 3.6.0
 - SWFObject: 2.2
 - Adobe Flex: 4.6 / Apache Flex 4.16.1
 - FFmpeg: 4.2.1 w/ libmp3lame, libvorbis support
+- Python: 3.8
 
 The Problem
 -----------
